@@ -3,13 +3,12 @@ pipeline {
 
     stages {
         stage('Build') {
-        		agent { label 'maven' }
             steps {
                 echo 'Building..'
-                sh 'java -version'
-                sh 'mvn -v'
-							  sh 'mvn clean package -DskipTests=true'
-							  sh 'mvn spring-boot:build-image'
+//                 sh 'java -version'
+                sh './mvnw -v'
+// 							  sh 'mvn clean package -DskipTests=true'
+// 							  sh 'mvn spring-boot:build-image'
             }
         }
         stage('Test') {
