@@ -1,8 +1,9 @@
 pipeline {
-    agent { label 'maven' }
+    agent any
 
     stages {
         stage('Build') {
+        		agent { label 'maven' }
             steps {
                 echo 'Building..'
                 sh 'java -version'
