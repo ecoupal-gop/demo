@@ -5,10 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-//                 sh 'java -version'
+                sh 'java -version'
                 sh './mvnw -v'
-// 							  sh 'mvn clean package -DskipTests=true'
-// 							  sh 'mvn spring-boot:build-image'
             }
         }
         stage('Test') {
@@ -20,6 +18,13 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+        stage('Build-image') {
+        		agent docker
+        		steps {
+        				echo 'build docker image'
+        				sh 'mvn spring-boot:build-image'
+        		}
         }
     }
     post {
