@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'java -version'
-                sh './mvnw clean package'
+//                 sh './mvnw clean package -DskipTests'
             }
         }
         stage('Test') {
@@ -23,6 +23,7 @@ pipeline {
         		agent { label 'docker' }
         		steps {
         				echo 'build docker image'
+        				sh 'java -version'
         				sh './mvnw spring-boot:build-image -DskipTests'
         		}
         }
