@@ -22,7 +22,7 @@ pipeline {
         stage('Build-image') {
         		steps {
         				echo 'build docker image'
-        				sh 'mvn spring-boot:build-image'
+        				sh './mvnw spring-boot:build-image'
         		}
         }
     }
