@@ -20,7 +20,6 @@ pipeline {
             }
         }
         stage('Build-image') {
-        		agent docker
         		steps {
         				echo 'build docker image'
         				sh 'mvn spring-boot:build-image'
