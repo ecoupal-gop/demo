@@ -20,6 +20,7 @@ pipeline {
             }
         }
         stage('Build-image') {
+        		agent { label 'docker' }
         		steps {
         				echo 'build docker image'
         				sh './mvnw spring-boot:build-image -DskipTests'
