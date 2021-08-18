@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'java -version'
-                sh './mvnw -v'
+                sh './mvnw clean package'
             }
         }
         stage('Test') {
