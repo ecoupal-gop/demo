@@ -9,6 +9,7 @@ pipeline {
                 sh 'java -version'
                 sh 'mvn -v'
 							  sh 'mvn clean package -DskipTests=true'
+							  sh 'mvn spring-boot:build-image'
             }
         }
         stage('Test') {
